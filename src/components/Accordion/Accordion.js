@@ -4,35 +4,33 @@ const Accordion = ({items}) => {
 
     const [activeIndex, setActiveIndex] = useState(null);
 
-    // onTitleClick = (index) => {
-    //     setActiveIndex(index);
-    // }
+    const onTitleClick = (index) => {
+        setActiveIndex(index);
+    }
     
     const formattedItems = items.map((item,index) => {
-        const activeContent = index === activeIndex ? 'show':'collapse';
-        const collapsedButton = index === activeIndex ? '' :'collapsed';
+        const activeContent = index === activeIndex ? 'active':'';
+        const activeTitle = activeContent;
+        
         return (
-            <div 
-                key={index}
-                className="accordion-item"
-                onClick={() => setActiveIndex(index)}
-            >
-                <h2 className="accordion-header" >
-                    <button className={`accordion-button ${collapsedButton}` } type="button" >
-                        {item.title}
-                    </button>
-                </h2>
-                <div className={`accordion-collapse bg-light ${activeContent}`} >
-                    <div className="accordion-body">
-                        {item.content}
-                    </div>
+            < >
+                <div 
+                    className={`title ${activeTitle}`}
+                    key={index}
+                    onClick={() => onTitleClick(index)}
+                >
+                    <i class="dropdown icon"></i>
+                    {item.title}
                 </div>
-            </div>
+                <div class={`content ${activeContent}`}>
+                    <p className="transition visible ">{item.content}</p>
+                </div>
+            </>
         )
     });
 
     return (
-        <div classNameName="accordion">{formattedItems}</div>
+        <div className="ui styled fluid accordion">{formattedItems}</div>
     );
 }
 

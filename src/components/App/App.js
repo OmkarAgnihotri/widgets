@@ -39,13 +39,13 @@ const App = () => {
     const [selected, setSelected ] = useState(options[0])
     return (
         <div className="container">
-            {/* <Accordion items={items} /> */}
+            <Accordion items={items} />
             {/* <Search /> */}
-            <Dropdown 
+            {/* <Dropdown 
                 options={options}
                 selected={selected}
                 onSelectedChange={setSelected}
-            />
+            /> */}
         </div>
     )
 }
