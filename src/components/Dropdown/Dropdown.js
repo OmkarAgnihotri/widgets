@@ -21,12 +21,16 @@ const Dropdown = ({options,selected, onSelectedChange}) => {
     });
 
     return (
-        <div className="form-group p-2">
-            <select className="form-control">
-                <option >{selected.label}</option>
-                {renderedOptions}
-            </select>
-        </div>
+        <form>
+            <div className="form-group p-2">
+                <select className="form-control">
+                    <option >{selected.label}</option>
+                    {renderedOptions}
+                </select>
+            </div>
+
+        </form>
+        
     );
 }
 
